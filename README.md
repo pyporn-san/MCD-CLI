@@ -8,4 +8,4 @@ Just download the source and [pip](https://pip.pypa.io/en/stable/), run this com
 ```
 pip install requirements.txt
 ```
-then run Download.py
+Then run Download.py
