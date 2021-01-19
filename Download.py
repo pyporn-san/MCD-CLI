@@ -26,8 +26,14 @@ def main():
     # Calling the Download function
     start = datetime.datetime.now()
     if links:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(links)) as executor:
-            executor.map(Multporn, links, repeat(True))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+            future_to_url = {executor.submit(Multporn, url, True): url for url in links}
+            for future in concurrent.futures.as_completed(future_to_url):
+                url = future_to_url[future]
+                try:
+                    future.result()
+                except Exception as exc:
+                    print(colored(f"{url} generated an exception: {exc}","red"))
     print(f"Done, took ", colored(datetime.datetime.now()-start, 'yellow'))
     _continue = cinput(f"Continue {colored('[Y/(N)]', 'cyan')}")
     if (_continue.lower().startswith("y")):
