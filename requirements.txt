@@ -1,3 +1,3 @@
-multporn==1.0.2
+multporn==1.2.0
 termcolor==1.1.0
 colorama==0.4.3
