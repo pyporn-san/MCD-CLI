@@ -79,13 +79,13 @@ def search():
         page = 1
     links = Utils.Search(query, page)
     for i in range(len(links)):
-        print(f"{colored(f'{i+1}.', 'green')} {links[i]}")
+        print(f"{colored(f'{i+1}.', 'green')} {links[i]['name']}")
     try:
         page = int(
             cinput(f"Choose comic {colored('(Defaults to first)', 'cyan')}: "))-1
     except ValueError:
         page = 0
-    return [links[page]]
+    return [links[page]["link"]]
 
 
 def manual():
