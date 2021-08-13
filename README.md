@@ -2,7 +2,7 @@
 
 A CLI that download from multiple comic sources
 
-## Currently supported sources
+## Sources
 
 * [Multporn](https://multporn.net/)
 * [Luscious](https://luscious.net/) (planned)
